@@ -1,39 +1,41 @@
-'use client'
+'use client';
 
-import { useEffect, useRef, forwardRef } from 'react'
-import { portfolioItems, type PortfolioItem } from '@/data/content'
+import { useEffect, useRef, forwardRef } from 'react';
+import { portfolioItems, type PortfolioItem } from '@/data/content';
 
 export default function Portfolio() {
-  const itemRefs = useRef<(HTMLDivElement | null)[]>([])
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
-        })
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
       },
       { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
-    )
-    itemRefs.current.forEach((el) => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+    );
+    itemRefs.current.forEach(el => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="portfolio" style={{ padding: '8rem 5%', background: '#f9f9f7' }}>
-      <h2 style={{
-        fontFamily: "'Bebas Neue', sans-serif",
-        fontSize: '3.5rem',
-        textAlign: 'center',
-        marginBottom: '5rem',
-        letterSpacing: '4px',
-        color: '#2c2c2a',
-      }}>
+    <section id='portfolio' style={{ padding: '8rem 5%', background: '#f9f9f7' }}>
+      <h2
+        style={{
+          fontFamily: "'Bebas Neue', sans-serif",
+          fontSize: '3.5rem',
+          textAlign: 'center',
+          marginBottom: '5rem',
+          letterSpacing: '4px',
+          color: '#2c2c2a',
+        }}
+      >
         PORTFOLIO
       </h2>
 
       <div
-        className="portfolio-grid"
+        className='portfolio-grid'
         style={{
           maxWidth: '1600px',
           margin: '0 auto',
@@ -46,19 +48,21 @@ export default function Portfolio() {
           <PortfolioCard
             key={item.id}
             item={item}
-            ref={(el) => { itemRefs.current[i] = el }}
+            ref={el => {
+              itemRefs.current[i] = el;
+            }}
           />
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 const PortfolioCard = forwardRef<HTMLDivElement, { item: PortfolioItem }>(({ item }, ref) => {
   return (
     <div
       ref={ref}
-      className="reveal"
+      className='reveal'
       style={{
         aspectRatio: '16/9',
         background: item.image
@@ -75,21 +79,21 @@ const PortfolioCard = forwardRef<HTMLDivElement, { item: PortfolioItem }>(({ ite
         transition: 'all 0.3s ease',
         padding: '1rem',
       }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget
-        el.style.transform = 'translateY(-8px)'
-        el.style.boxShadow = '0 12px 30px rgba(110,87,68,0.2)'
-        el.style.borderColor = '#6E5744'
+      onMouseEnter={e => {
+        const el = e.currentTarget;
+        el.style.transform = 'translateY(-8px)';
+        el.style.boxShadow = '0 12px 30px rgba(110,87,68,0.2)';
+        el.style.borderColor = '#6E5744';
       }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget
-        el.style.transform = 'translateY(0)'
-        el.style.boxShadow = 'none'
-        el.style.borderColor = 'rgba(0,0,0,0.08)'
+      onMouseLeave={e => {
+        const el = e.currentTarget;
+        el.style.transform = 'translateY(0)';
+        el.style.boxShadow = 'none';
+        el.style.borderColor = 'rgba(0,0,0,0.08)';
       }}
     >
       {!item.image && item.title}
     </div>
-  )
-})
-PortfolioCard.displayName = 'PortfolioCard'
+  );
+});
+PortfolioCard.displayName = 'PortfolioCard';
