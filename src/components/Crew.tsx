@@ -78,8 +78,8 @@ const CrewCard = forwardRef<HTMLDivElement, { member: CrewMember }>(
         <div
           className="crew-photo"
           style={{
-            width: '160px',
-            height: '160px',
+            width: '112px',
+            height: '112px',
             margin: '0 auto 1.5rem',
             borderRadius: '50%',
             background: member.image
