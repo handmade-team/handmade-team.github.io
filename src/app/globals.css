@@ -28,3 +28,17 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+
+/* 슬라이더 */
+@keyframes slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.slider-track {
+  animation: slide 30s linear infinite;
+}
+
+.slider-wrapper:hover .slider-track {
+  animation-play-state: paused;
+}
