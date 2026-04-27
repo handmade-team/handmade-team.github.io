@@ -36,11 +36,11 @@ export default function HomeSection() {
         {/* 타이틀 */}
         <h1
           style={{
-            fontFamily: "'Bebas Neue', sans-serif",
+            fontFamily: "'Pretendard', sans-serif",
             fontSize: 'clamp(3.5rem, 8vw, 5rem)',
             letterSpacing: '4px',
             marginBottom: '1rem',
-            fontWeight: 400,
+            fontWeight: 900,
             color: '#2c2c2a',
           }}
         >
