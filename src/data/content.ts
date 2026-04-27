@@ -11,15 +11,6 @@ export interface PortfolioItem {
   link?: string;
 }
 
-export const contentSlides: ContentSlide[] = [
-  { id: 1, title: '콘텐츠 썸네일 1', thumbnail: '/content/thumbnail1.jpg' },
-  { id: 2, title: '콘텐츠 썸네일 2', thumbnail: '/content/thumbnail2.jpg' },
-  { id: 3, title: '콘텐츠 썸네일 3', thumbnail: '/content/thumbnail3.jpg' },
-  { id: 4, title: '콘텐츠 썸네일 4', thumbnail: '/content/thumbnail4.jpg' },
-  { id: 5, title: '콘텐츠 썸네일 5', thumbnail: '/content/thumbnail5.jpg' },
-  { id: 6, title: '콘텐츠 썸네일 6', thumbnail: '/content/thumbnail6.jpg' },
-];
-
 export const portfolioItems: PortfolioItem[] = [
   { id: 1, title: '양띵TV 악령술래잡기', image: '/portfolio/01-양띵TV-악령술래잡기.jpg' },
   { id: 2, title: '양띵TV 이터널어드벤쳐', image: '/portfolio/02-양띵TV-이터널어드벤쳐.jpg' },
@@ -40,3 +31,9 @@ export const portfolioItems: PortfolioItem[] = [
   { id: 17, title: '스텔라이브 아야츠노 유니 3주년 콘텐츠', image: '/portfolio/17-스텔라이브-아야츠노-유니-3주년-콘텐츠.png' },
   { id: 18, title: '홍신소 창을내요 홍창의 숲', image: '/portfolio/18-홍신소-창을내요-홍창의-숲.png' },
 ];
+
+export const contentSlides: ContentSlide[] = portfolioItems.map(item => ({
+  id: item.id,
+  title: item.title,
+  thumbnail: item.image,
+}));
