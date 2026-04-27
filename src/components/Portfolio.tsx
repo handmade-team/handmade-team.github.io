@@ -1,8 +1,7 @@
 'use client'
 
 import { useEffect, useRef, forwardRef } from 'react'
-
-const items = Array.from({ length: 20 }, (_, i) => `[콘텐츠 ${i + 1}]`)
+import { portfolioItems, type PortfolioItem } from '@/data/content'
 
 export default function Portfolio() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -43,10 +42,10 @@ export default function Portfolio() {
           gap: '1.5rem',
         }}
       >
-        {items.map((label, i) => (
-          <PortfolioItem
-            key={i}
-            label={label}
+        {portfolioItems.map((item, i) => (
+          <PortfolioCard
+            key={item.id}
+            item={item}
             ref={(el) => { itemRefs.current[i] = el }}
           />
         ))}
@@ -55,14 +54,16 @@ export default function Portfolio() {
   )
 }
 
-const PortfolioItem = forwardRef<HTMLDivElement, { label: string }>(({ label }, ref) => {
+const PortfolioCard = forwardRef<HTMLDivElement, { item: PortfolioItem }>(({ item }, ref) => {
   return (
     <div
       ref={ref}
       className="reveal"
       style={{
         aspectRatio: '16/9',
-        background: 'linear-gradient(135deg, rgba(110,87,68,0.15) 0%, rgba(110,87,68,0.05) 100%)',
+        background: item.image
+          ? `url(${item.image}) center/cover no-repeat`
+          : 'linear-gradient(135deg, rgba(110,87,68,0.15) 0%, rgba(110,87,68,0.05) 100%)',
         borderRadius: '8px',
         border: '1px solid rgba(0,0,0,0.08)',
         display: 'flex',
@@ -87,8 +88,8 @@ const PortfolioItem = forwardRef<HTMLDivElement, { label: string }>(({ label }, 
         el.style.borderColor = 'rgba(0,0,0,0.08)'
       }}
     >
-      {label}
+      {!item.image && item.title}
     </div>
   )
 })
-PortfolioItem.displayName = 'PortfolioItem'
+PortfolioCard.displayName = 'PortfolioCard'

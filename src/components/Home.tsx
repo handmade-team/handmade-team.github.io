@@ -1,13 +1,6 @@
 'use client';
 
-const slides = [
-  '[콘텐츠 썸네일 1]',
-  '[콘텐츠 썸네일 2]',
-  '[콘텐츠 썸네일 3]',
-  '[콘텐츠 썸네일 4]',
-  '[콘텐츠 썸네일 5]',
-  '[콘텐츠 썸네일 6]',
-];
+import { contentSlides } from '@/data/content';
 
 const streamers = ['라율', '꾸르밍', '시스네'];
 
@@ -83,13 +76,15 @@ export default function HomeSection() {
           }}
         >
           <div className='slider-track' style={{ display: 'flex', gap: '2rem' }}>
-            {[...slides, ...slides].map((label, i) => (
+            {[...contentSlides, ...contentSlides].map((slide, i) => (
               <div
                 key={i}
                 style={{
                   minWidth: '300px',
                   height: '200px',
-                  background: 'linear-gradient(135deg, rgba(110,87,68,0.12) 0%, rgba(110,87,68,0.04) 100%)',
+                  background: slide.thumbnail
+                    ? `url(${slide.thumbnail}) center/cover no-repeat`
+                    : 'linear-gradient(135deg, rgba(110,87,68,0.12) 0%, rgba(110,87,68,0.04) 100%)',
                   borderRadius: '8px',
                   display: 'flex',
                   alignItems: 'center',
@@ -100,7 +95,7 @@ export default function HomeSection() {
                   flexShrink: 0,
                 }}
               >
-                {label}
+                {!slide.thumbnail && slide.title}
               </div>
             ))}
           </div>

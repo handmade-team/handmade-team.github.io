@@ -1,15 +1,7 @@
 'use client'
 
 import { useEffect, useRef, forwardRef } from 'react'
-
-const crewData = [
-  { name: '팀원 1', role: '직책/역할' },
-  { name: '팀원 2', role: '직책/역할' },
-  { name: '팀원 3', role: '직책/역할' },
-  { name: '팀원 4', role: '직책/역할' },
-  { name: '팀원 5', role: '직책/역할' },
-  { name: '팀원 6', role: '직책/역할' },
-]
+import { crewData, type CrewMember } from '@/data/crew'
 
 export default function Crew() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([])
@@ -49,9 +41,8 @@ export default function Crew() {
       }}>
         {crewData.map((member, i) => (
           <CrewCard
-            key={i}
-            name={member.name}
-            role={member.role}
+            key={member.id}
+            member={member}
             ref={(el) => { itemRefs.current[i] = el }}
           />
         ))}
@@ -60,8 +51,8 @@ export default function Crew() {
   )
 }
 
-const CrewCard = forwardRef<HTMLDivElement, { name: string; role: string }>(
-  ({ name, role }, ref) => {
+const CrewCard = forwardRef<HTMLDivElement, { member: CrewMember }>(
+  ({ member }, ref) => {
     return (
       <div
         ref={ref}
@@ -91,7 +82,9 @@ const CrewCard = forwardRef<HTMLDivElement, { name: string; role: string }>(
             height: '160px',
             margin: '0 auto 1.5rem',
             borderRadius: '50%',
-            background: 'linear-gradient(135deg, rgba(110,87,68,0.2) 0%, rgba(110,87,68,0.08) 100%)',
+            background: member.image
+              ? `url(${member.image}) center/cover no-repeat`
+              : 'linear-gradient(135deg, rgba(110,87,68,0.2) 0%, rgba(110,87,68,0.08) 100%)',
             border: '3px solid rgba(0,0,0,0.1)',
             display: 'flex',
             alignItems: 'center',
@@ -101,13 +94,13 @@ const CrewCard = forwardRef<HTMLDivElement, { name: string; role: string }>(
             transition: 'all 0.3s ease',
           }}
         >
-          [프로필 사진]
+          {!member.image && '[프로필 사진]'}
         </div>
         <div style={{ fontSize: '1.3rem', fontWeight: 600, color: '#2c2c2a', marginBottom: '0.5rem' }}>
-          {name}
+          {member.name}
         </div>
         <div style={{ fontSize: '0.9rem', color: '#999' }}>
-          {role}
+          {member.role}
         </div>
       </div>
     )
