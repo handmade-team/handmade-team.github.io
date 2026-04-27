@@ -55,7 +55,7 @@ export default function Header() {
         {/* 로고 */}
         <div style={{ cursor: 'pointer' }} onClick={() => scrollTo('HOME')}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/trans.png" alt="가내수공업팀" style={{ height: '60px', width: 'auto', display: 'block' }} />
+          <img src="/logo.png" alt="가내수공업팀" style={{ height: '60px', width: 'auto', display: 'block' }} />
         </div>
 
         {/* 네비게이션 */}
