@@ -33,7 +33,7 @@ export const portfolioItems: PortfolioItem[] = [
   { id: 10, title: '양띵TV 구스구스띵', image: '/portfolio/10-양띵TV-구스구스띵.jpg' },
   { id: 11, title: '물초코 여름방학초코고대운동회', image: '/portfolio/11-물초코-여름방학초코고대운동회.jpg' },
   { id: 12, title: '가습기 2025 일출서버', image: '/portfolio/12-가습기-2025-일출서버.png' },
-  { id: 13, title: '니즈 경찰과도둑', image: '/portfolio/13-니즈-경찰과도둑.jpg' },
+  { id: 13, title: '니즈 경찰과도둑', image: '/portfolio/13-니즈-경찰과도둑.png' },
   { id: 14, title: '물초코 물징어게임', image: '/portfolio/14-물초코-물징어게임.jpg' },
   { id: 15, title: '츠밍 먼푸서버', image: '/portfolio/15-츠밍-먼푸서버.png' },
   { id: 16, title: '스텔라이브 2025 연말 컨텐츠', image: '/portfolio/16-스텔라이브-2025-연말-컨텐츠.jpg' },
