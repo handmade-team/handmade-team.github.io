@@ -3,6 +3,8 @@ import HomeSection from '@/components/Home'
 import About from '@/components/About'
 import Portfolio from '@/components/Portfolio'
 import Crew from '@/components/Crew'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -13,8 +15,9 @@ export default function Home() {
         <About />
         <Portfolio />
         <Crew />
-        {/* 섹션 추가 예정 */}
+        <Contact />
       </main>
+      <Footer />
     </>
   )
 }
