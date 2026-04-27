@@ -2,12 +2,12 @@
 
 export default function Contact() {
   return (
-    <section id="contact" style={{ padding: '8rem 5%', background: '#f9f9f7', textAlign: 'center' }}>
+    <section id="contact" style={{ padding: '3rem 5%', background: '#f9f9f7', textAlign: 'center' }}>
       <h2 style={{
         fontFamily: "'Bebas Neue', sans-serif",
         fontSize: '3.5rem',
         textAlign: 'center',
-        marginBottom: '5rem',
+        marginBottom: '2rem',
         letterSpacing: '4px',
         color: '#2c2c2a',
       }}>
@@ -21,7 +21,7 @@ export default function Contact() {
           fontSize: '2rem',
           color: '#6E5744',
           textDecoration: 'none',
-          marginTop: '2rem',
+          marginTop: 0,
           padding: '1.5rem 3rem',
           border: '2px solid #6E5744',
           borderRadius: '50px',
