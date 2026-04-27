@@ -32,7 +32,7 @@ export const portfolioItems: PortfolioItem[] = [
   { id: 18, title: '홍신소 창을내요 홍창의 숲', image: '/portfolio/18-홍신소-창을내요-홍창의-숲.png' },
 ];
 
-export const contentSlides: ContentSlide[] = portfolioItems.map(item => ({
+export const contentSlides: ContentSlide[] = [...portfolioItems].reverse().map(item => ({
   id: item.id,
   title: item.title,
   thumbnail: item.image,
