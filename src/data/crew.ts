@@ -71,7 +71,7 @@ export const crewData: CrewMember[] = [
     id: 19,
     name: '홍띠',
     role: '3D 모델링',
-    image: '/logo.png',
+    image: 'https://cravatar.eu/helmhead/hongddi_/512',
     link: 'https://bsky.app/profile/did:plc:jjpovpplafouengdgmhqpqhy',
   },
   {
@@ -82,7 +82,7 @@ export const crewData: CrewMember[] = [
     link: 'https://sketchfab.com/Seoleetae',
   },
   { id: 21, name: '앞니', role: '시스템 개발', image: '/logo.png' },
-  { id: 22, name: '롤라드', role: 'BGM', image: 'https://cravatar.eu/helmhead/lollade/512' },
+  { id: 22, name: '롤라드', role: 'BGM', image: 'https://cravatar.eu/helmhead/lollade123/512' },
   { id: 23, name: '와비소', role: '디자인', image: '/logo.png' },
   { id: 24, name: '박유화', role: '디자인', image: 'https://cravatar.eu/helmhead/YuHwa_/512' },
   { id: 25, name: '카라멜', role: '디자인', image: 'https://cravatar.eu/helmhead/abc_CARAMEL/512' },
