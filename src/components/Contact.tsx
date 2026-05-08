@@ -45,7 +45,7 @@ export default function Contact() {
           el.style.boxShadow = 'none';
         }}
       >
-        contact@team-handmade.com
+        bdb4445@gmail.com
       </a>
     </section>
   );
