@@ -89,6 +89,6 @@ export const crewData: CrewMember[] = [
   { id: 26, name: '최뽀삐', role: '건축, 디자인', image: '/logo.png' },
   { id: 27, name: '홍.', role: '디자인', image: 'https://cravatar.eu/helmhead/HONG0000/512' },
   { id: 28, name: '꾸르밍', role: '디자인', image: 'https://cravatar.eu/helmhead/lwy2808/512' },
-  { id: 29, name: '츠양', role: '일러스트', image: '/logo.png' },
+  { id: 29, name: '츠양', role: '일러스트', image: 'https://cravatar.eu/helmhead/ceuyang/512' },
   { id: 31, name: '시우(꽁플)', role: '시스템 개발', image: '/logo.png' },
 ];
