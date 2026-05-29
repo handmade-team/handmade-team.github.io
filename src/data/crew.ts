@@ -57,7 +57,7 @@ export const crewData: CrewMember[] = [
     name: '시스네',
     role: '기획, 디자인',
     image: 'https://cravatar.eu/helmhead/cisnes/512',
-    link: 'https://www.sooplive.com/station/sirohiru/board/121661269',
+    link: 'https://www.notion.so/36da4dbd5aec8027a625ca1366d411e6?source=copy_link',
   },
   { id: 11, name: '해물찜', role: '맵 제작', image: 'https://cravatar.eu/helmhead/hemuljjim/512' },
   { id: 12, name: '킨더스', role: '맵 제작', image: 'https://cravatar.eu/helmhead/RFT_Kinders/512' },
