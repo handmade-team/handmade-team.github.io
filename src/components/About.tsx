@@ -8,6 +8,18 @@ const timelineData = [
   { year: '2024', content: 'SOOP 플랫폼을 중심으로 외주 활동 재개' },
 ];
 
+const services = [
+  '기획, 스토리',
+  '서버 운영',
+  '시스템 개발',
+  '맵 제작, 건축',
+  '3D 모델링',
+  '디자인, 일러스트',
+  'QA',
+  '영상 편집',
+  'BGM',
+];
+
 export default function About() {
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -15,9 +27,7 @@ export default function About() {
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible');
         });
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
@@ -27,99 +37,29 @@ export default function About() {
   }, []);
 
   return (
-    <section id='about' style={{ padding: '8rem 5%', background: '#ffffff' }}>
-      <h2
-        style={{
-          fontFamily: "'Bebas Neue', sans-serif",
-          fontSize: '3.5rem',
-          textAlign: 'center',
-          marginBottom: '5rem',
-          letterSpacing: '4px',
-          color: '#2c2c2a',
-        }}
-      >
-        ABOUT
-      </h2>
+    <section id='about' className='section about'>
+      <h2 className='section-title'>ABOUT</h2>
 
-      {/* 타임라인 */}
-      <div style={{ maxWidth: '900px', margin: '0 auto', position: 'relative' }}>
-        {/* 중앙 세로선 */}
-        <div
-          style={{
-            position: 'absolute',
-            left: '50%',
-            top: 0,
-            bottom: 0,
-            width: '2px',
-            background: 'linear-gradient(180deg, #6E5744 0%, #8a7462 100%)',
-            transform: 'translateX(-50%)',
-          }}
-        />
-
-        {timelineData.map((item, i) => {
-          const isEven = i % 2 === 1;
-          return (
-            <div
-              key={item.year}
-              ref={el => {
-                itemRefs.current[i] = el;
-              }}
-              className='reveal'
-              style={{
-                display: 'flex',
-                flexDirection: isEven ? 'row-reverse' : 'row',
-                marginBottom: '4rem',
-                position: 'relative',
-              }}
-            >
-              {/* 연도 */}
-              <div
-                style={{
-                  fontFamily: "'Bebas Neue', sans-serif",
-                  fontSize: '3rem',
-                  color: '#6E5744',
-                  flex: 1,
-                  textAlign: isEven ? 'left' : 'right',
-                  paddingRight: isEven ? 0 : '3rem',
-                  paddingLeft: isEven ? '3rem' : 0,
-                  letterSpacing: '2px',
-                }}
-              >
-                {item.year}
-              </div>
-
-              {/* 중앙 점 */}
-              <div
-                style={{
-                  width: '20px',
-                  height: '20px',
-                  background: '#6E5744',
-                  borderRadius: '50%',
-                  position: 'absolute',
-                  left: '50%',
-                  top: '1rem',
-                  transform: 'translateX(-50%)',
-                  boxShadow: '0 0 20px rgba(110,87,68,0.5)',
-                  zIndex: 2,
-                }}
-              />
-
-              {/* 내용 */}
-              <div
-                style={{
-                  flex: 1,
-                  paddingLeft: isEven ? 0 : '3rem',
-                  paddingRight: isEven ? '3rem' : 0,
-                  paddingTop: '0.5rem',
-                  textAlign: isEven ? 'right' : 'left',
-                }}
-              >
-                <p style={{ fontSize: '1.1rem', color: '#666', lineHeight: 1.8 }}>{item.content}</p>
-              </div>
-            </div>
-          );
-        })}
+      <div className='timeline'>
+        {timelineData.map((item, i) => (
+          <div
+            key={item.year}
+            ref={el => {
+              itemRefs.current[i] = el;
+            }}
+            className='timeline-row reveal'
+          >
+            <div className='timeline-year'>{item.year}</div>
+            <p className='timeline-text'>{item.content}</p>
+          </div>
+        ))}
       </div>
+
+      <ul className='service-list' aria-label='제작 분야'>
+        {services.map(service => (
+          <li key={service}>{service}</li>
+        ))}
+      </ul>
     </section>
   );
 }

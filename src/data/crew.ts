@@ -66,7 +66,7 @@ export const crewData: CrewMember[] = [
   { id: 15, name: '비트타는곰', role: 'QA, 서버 운영', image: 'https://cravatar.eu/helmhead/Elfail8591/512' },
   { id: 16, name: '일오놈', role: 'QA, 서버 운영', image: 'https://cravatar.eu/helmhead/15nom/512' },
   { id: 17, name: '정이', role: 'QA, 서버 운영', image: 'https://cravatar.eu/helmhead/yumin0331/512' },
-  { id: 18, name: '하빈', role: '영상 편집', image: '/logo.png' },
+  { id: 18, name: '하빈', role: '영상 편집' },
   {
     id: 19,
     name: '홍띠',
@@ -81,14 +81,24 @@ export const crewData: CrewMember[] = [
     image: 'https://cravatar.eu/helmhead/SEOLEETAE/512',
     link: 'https://sketchfab.com/Seoleetae',
   },
-  { id: 21, name: '앞니', role: '시스템 개발', image: '/logo.png' },
+  { id: 21, name: '앞니', role: '시스템 개발' },
   { id: 22, name: '롤라드', role: 'BGM', image: 'https://cravatar.eu/helmhead/lollade123/512' },
-  { id: 23, name: '와비소', role: '디자인', image: '/logo.png' },
+  { id: 23, name: '와비소', role: '디자인' },
   { id: 24, name: '박유화', role: '디자인', image: 'https://cravatar.eu/helmhead/YuHwa_/512' },
   { id: 25, name: '카라멜', role: '디자인', image: 'https://cravatar.eu/helmhead/abc_CARAMEL/512' },
-  { id: 26, name: '최뽀삐', role: '건축, 디자인', image: '/logo.png' },
+  { id: 26, name: '최뽀삐', role: '건축, 디자인' },
   { id: 27, name: '홍.', role: '디자인', image: 'https://cravatar.eu/helmhead/HONG0000/512' },
   { id: 28, name: '꾸르밍', role: '디자인', image: 'https://cravatar.eu/helmhead/lwy2808/512' },
   { id: 29, name: '츠양', role: '일러스트', image: 'https://cravatar.eu/helmhead/ceuyang/512' },
-  { id: 31, name: '시우(꽁플)', role: '시스템 개발', image: '/logo.png' },
+  { id: 31, name: '시우(꽁플)', role: '시스템 개발' },
+];
+
+export const crewGroups: { name: string; ids: number[] }[] = [
+  { name: '기획, 프로젝트 관리', ids: [1, 2, 3, 4, 10, 13] },
+  { name: '시스템 개발', ids: [5, 6, 9, 21, 31] },
+  { name: '맵 제작, 건축', ids: [7, 8, 11, 12, 26] },
+  { name: '3D 모델링', ids: [19, 20] },
+  { name: '디자인, 일러스트', ids: [23, 24, 25, 27, 28, 29] },
+  { name: 'QA, 서버 운영', ids: [14, 15, 16, 17] },
+  { name: '영상, 사운드', ids: [18, 22] },
 ];

@@ -6,6 +6,7 @@ const navItems = ['HOME', 'ABOUT', 'PORTFOLIO', 'CREW', 'CONTACT'] as const;
 
 export default function Header() {
   const [active, setActive] = useState('HOME');
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
@@ -26,85 +27,54 @@ export default function Header() {
   }, []);
 
   const scrollTo = (id: string) => {
-    const el = document.getElementById(id.toLowerCase());
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: 'smooth' });
     setActive(id);
+    setMenuOpen(false);
   };
 
   return (
-    <header
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        background: 'rgba(255,255,255,0.95)',
-        backdropFilter: 'blur(10px)',
-        padding: '1.5rem 5%',
-        zIndex: 1000,
-        borderBottom: '1px solid rgba(0,0,0,0.08)',
-      }}
-    >
-      <div
-        style={{
-          maxWidth: '1400px',
-          margin: '0 auto',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-        }}
-      >
-        {/* 로고 */}
-        <div style={{ cursor: 'pointer' }} onClick={() => scrollTo('HOME')}>
+    <header className='site-header'>
+      <div className='header-inner'>
+        <button type='button' className='logo-button' aria-label='맨 위로 이동' onClick={() => scrollTo('HOME')}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src='/logo.png' alt='가내수공업팀' style={{ height: '60px', width: 'auto', display: 'block' }} />
-        </div>
+          <img src='/logo.png' alt='가내수공업팀' />
+        </button>
 
-        {/* 네비게이션 */}
-        <nav style={{ display: 'flex', gap: '3rem' }}>
+        <button
+          type='button'
+          className='menu-button'
+          aria-label={menuOpen ? '메뉴 닫기' : '메뉴 열기'}
+          aria-expanded={menuOpen}
+          aria-controls='site-nav'
+          onClick={() => setMenuOpen(open => !open)}
+        >
+          <svg
+            aria-hidden='true'
+            width='24'
+            height='24'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            strokeWidth='2'
+          >
+            <path d={menuOpen ? 'M5 5l14 14M19 5L5 19' : 'M3 6h18M3 12h18M3 18h18'} />
+          </svg>
+        </button>
+
+        <nav id='site-nav' aria-label='주요 메뉴' className={`site-nav${menuOpen ? ' open' : ''}`}>
           {navItems.map(item => (
-            <NavLink key={item} label={item} active={active === item} onClick={() => scrollTo(item)} />
+            <button
+              key={item}
+              type='button'
+              className={`nav-link${active === item ? ' active' : ''}`}
+              aria-current={active === item ? 'true' : undefined}
+              onClick={() => scrollTo(item)}
+            >
+              {item}
+            </button>
           ))}
         </nav>
       </div>
     </header>
-  );
-}
-
-function NavLink({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
-  return (
-    <button
-      onClick={onClick}
-      style={{
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        padding: 0,
-        position: 'relative',
-        color: active ? '#6E5744' : '#666',
-        fontSize: '0.95rem',
-        fontWeight: 500,
-        letterSpacing: '1px',
-        transition: 'color 0.3s ease',
-        fontFamily: 'inherit',
-      }}
-    >
-      {label}
-      {/* 하단 밑줄 */}
-      <span
-        style={{
-          position: 'absolute',
-          bottom: '-6px',
-          left: 0,
-          height: '2px',
-          width: active ? '100%' : '0',
-          background: '#6E5744',
-          transition: 'width 0.3s ease',
-          display: 'block',
-        }}
-      />
-    </button>
   );
 }
