@@ -1,6 +1,6 @@
 import { contentSlides } from '@/data/content';
 
-const streamers = ['라율', '꾸르밍', '시스네'];
+const streamers = ['라율', '츠밍', '꾸르밍', '시스네', '일오놈'];
 
 export default function HomeSection() {
   return (
