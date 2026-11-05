@@ -50,7 +50,12 @@ function CrewCard({ member }: { member: CrewMember }) {
       <div className='crew-photo'>
         {member.image ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={member.image} alt='' loading='lazy' />
+          <img
+            src={member.image}
+            alt=''
+            loading='lazy'
+            className={member.image === '/logo.png' ? 'crew-photo-logo' : undefined}
+          />
         ) : (
           <span aria-hidden='true'>{member.name[0]}</span>
         )}

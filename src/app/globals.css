@@ -429,6 +429,13 @@ section[id] {
   object-fit: cover;
 }
 
+/* 로고는 원 안에 잘리지 않게 표시 */
+.crew-photo img.crew-photo-logo {
+  object-fit: contain;
+  padding: 12%;
+  background: #fff;
+}
+
 .crew-card:hover .crew-photo {
   border-color: var(--brown);
 }

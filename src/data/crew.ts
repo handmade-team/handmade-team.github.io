@@ -66,7 +66,7 @@ export const crewData: CrewMember[] = [
   { id: 15, name: '비트타는곰', role: 'QA, 서버 운영', image: 'https://cravatar.eu/helmhead/Elfail8591/512' },
   { id: 16, name: '일오놈', role: 'QA, 서버 운영', image: 'https://cravatar.eu/helmhead/15nom/512' },
   { id: 17, name: '정이', role: 'QA, 서버 운영', image: 'https://cravatar.eu/helmhead/yumin0331/512' },
-  { id: 18, name: '하빈', role: '영상 편집' },
+  { id: 18, name: '하빈', role: '영상 편집', image: '/logo.png' },
   {
     id: 19,
     name: '홍띠',
@@ -81,16 +81,16 @@ export const crewData: CrewMember[] = [
     image: 'https://cravatar.eu/helmhead/SEOLEETAE/512',
     link: 'https://sketchfab.com/Seoleetae',
   },
-  { id: 21, name: '앞니', role: '시스템 개발' },
+  { id: 21, name: '앞니', role: '시스템 개발', image: '/logo.png' },
   { id: 22, name: '롤라드', role: 'BGM', image: 'https://cravatar.eu/helmhead/lollade123/512' },
-  { id: 23, name: '와비소', role: '디자인' },
+  { id: 23, name: '와비소', role: '디자인', image: '/logo.png' },
   { id: 24, name: '박유화', role: '디자인', image: 'https://cravatar.eu/helmhead/YuHwa_/512' },
   { id: 25, name: '카라멜', role: '디자인', image: 'https://cravatar.eu/helmhead/abc_CARAMEL/512' },
-  { id: 26, name: '최뽀삐', role: '건축, 디자인' },
+  { id: 26, name: '최뽀삐', role: '건축, 디자인', image: '/logo.png' },
   { id: 27, name: '홍.', role: '디자인', image: 'https://cravatar.eu/helmhead/HONG0000/512' },
   { id: 28, name: '꾸르밍', role: '디자인', image: 'https://cravatar.eu/helmhead/lwy2808/512' },
   { id: 29, name: '츠양', role: '일러스트', image: 'https://cravatar.eu/helmhead/ceuyang/512' },
-  { id: 31, name: '시우(꽁플)', role: '시스템 개발' },
+  { id: 31, name: '시우(꽁플)', role: '시스템 개발', image: '/logo.png' },
 ];
 
 export const crewGroups: { name: string; ids: number[] }[] = [
