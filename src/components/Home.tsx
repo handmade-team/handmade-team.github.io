@@ -1,6 +1,5 @@
-import { contentSlides } from '@/data/content';
-
-const streamers = ['라율', '츠밍', '꾸르밍', '시스네', '일오놈'];
+import { latestWorks, workImage } from '@/data/portfolio';
+import { streamers } from '@/data/team';
 
 export default function HomeSection() {
   return (
@@ -20,13 +19,13 @@ export default function HomeSection() {
 
       <div className='slider-wrapper'>
         <div className='slider-track'>
-          {[...contentSlides, ...contentSlides].map((slide, i) => (
+          {[...latestWorks, ...latestWorks].map((work, i) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              key={`${slide.id}-${i}`}
-              src={slide.thumbnail}
-              alt={i < contentSlides.length ? slide.title : ''}
-              aria-hidden={i >= contentSlides.length}
+              key={`${work.image}-${i}`}
+              src={workImage(work)}
+              alt={i < latestWorks.length ? `${work.streamer} ${work.title}` : ''}
+              aria-hidden={i >= latestWorks.length}
             />
           ))}
         </div>

@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { crewData, crewGroups, type CrewMember } from '@/data/crew';
-
-const groups = crewGroups.map(group => ({
-  name: group.name,
-  members: group.ids.map(id => crewData.find(member => member.id === id)).filter((m): m is CrewMember => Boolean(m)),
-}));
+import { avatarUrl, crewByGroup, type CrewMember } from '@/data/crew';
 
 export default function Crew() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -29,12 +24,12 @@ export default function Crew() {
       <h2 className='section-title'>CREW</h2>
 
       <div className='crew-groups'>
-        {groups.map(group => (
-          <div key={group.name}>
+        {crewByGroup.map(group => (
+          <div key={group.key}>
             <h3 className='crew-group-title'>{group.name}</h3>
             <div className='crew-members'>
               {group.members.map(member => (
-                <CrewCard key={member.id} member={member} />
+                <CrewCard key={member.name} member={member} />
               ))}
             </div>
           </div>
@@ -48,17 +43,13 @@ function CrewCard({ member }: { member: CrewMember }) {
   return (
     <div className='crew-card reveal'>
       <div className='crew-photo'>
-        {member.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={member.image}
-            alt=''
-            loading='lazy'
-            className={member.image === '/logo.png' ? 'crew-photo-logo' : undefined}
-          />
-        ) : (
-          <span aria-hidden='true'>{member.name[0]}</span>
-        )}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={member.mcName ? avatarUrl(member.mcName) : '/logo.png'}
+          alt=''
+          loading='lazy'
+          className={member.mcName ? undefined : 'crew-photo-logo'}
+        />
       </div>
       <div className='crew-name-row'>
         <div className='crew-name'>{member.name}</div>

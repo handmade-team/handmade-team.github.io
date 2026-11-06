@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { portfolioItems } from '@/data/content';
-
-const works = [...portfolioItems].reverse().map(item => {
-  const [by, ...rest] = item.title.split(' ');
-  return { ...item, by, name: rest.join(' ') };
-});
+import { latestWorks, workImage } from '@/data/portfolio';
 
 export default function Portfolio() {
   const itemRefs = useRef<(HTMLElement | null)[]>([]);
@@ -29,18 +24,18 @@ export default function Portfolio() {
       <h2 className='section-title'>PORTFOLIO</h2>
 
       <div className='portfolio-grid'>
-        {works.map((work, i) => (
+        {latestWorks.map((work, i) => (
           <article
-            key={work.id}
+            key={work.image}
             ref={el => {
               itemRefs.current[i] = el;
             }}
             className='work reveal'
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={work.image} alt={`${work.title} 썸네일`} loading='lazy' />
-            <h3 className='work-title'>{work.name}</h3>
-            <p className='work-by'>{work.by}</p>
+            <img src={workImage(work)} alt={`${work.streamer} ${work.title} 썸네일`} loading='lazy' />
+            <h3 className='work-title'>{work.title}</h3>
+            <p className='work-by'>{work.streamer}</p>
           </article>
         ))}
       </div>
