@@ -49,6 +49,10 @@ function CrewCard({ member }: { member: CrewMember }) {
           alt=''
           loading='lazy'
           className={member.mcName ? undefined : 'crew-photo-logo'}
+          onError={e => showLogo(e.currentTarget)}
+          ref={img => {
+            if (img?.complete && img.naturalWidth === 0) showLogo(img);
+          }}
         />
       </div>
       <div className='crew-name-row'>
@@ -81,4 +85,10 @@ function CrewCard({ member }: { member: CrewMember }) {
       <div className='crew-role'>{member.role}</div>
     </div>
   );
+}
+
+function showLogo(img: HTMLImageElement) {
+  if (img.src.endsWith('/logo.png')) return;
+  img.src = '/logo.png';
+  img.className = 'crew-photo-logo';
 }

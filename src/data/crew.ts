@@ -113,7 +113,8 @@ export const crew: CrewMember[] = [
   { name: '롤라드', group: 'media', role: 'BGM', mcName: 'lollade123' },
 ];
 
-export const avatarUrl = (mcName: string) => `https://cravatar.eu/helmhead/${mcName}/512`;
+/** public/crew/ 에 저장된 머리 이미지. `npm run avatars` 로 받아온다 */
+export const avatarUrl = (mcName: string) => `/crew/${mcName}.png`;
 
 /** 그룹별로 묶은 크루 목록 (빈 그룹 제외) */
 export const crewByGroup = crewGroups
