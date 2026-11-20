@@ -50,7 +50,7 @@ export const crew: CrewMember[] = [
     mcName: 'cisnes',
     link: 'https://www.notion.so/36da4dbd5aec8027a625ca1366d411e6?source=copy_link',
   },
-  { name: '노네임', group: 'planning', role: '기획, 스토리', mcName: 'Dl0524' },
+  { name: '노네임', group: 'planning', role: '기획, 스토리', mcName: 'No_Name0224' },
 
   // 시스템 개발
   { name: '다요', group: 'dev', role: '시스템 개발', mcName: 'Dayo05', link: 'https://pf.ddayo.me/' },
